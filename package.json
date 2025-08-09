@@ -1,0 +1,20 @@
+{
+  "name": "e-commerce",
+  "private": true,
+  "packageManager": "yarn@4.9.2",
+  "workspaces": [
+    "apps/*",
+    "domain"
+  ],
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "test": "yarn workspaces foreach -vvpA run test --run --clearScreen false",
+    "build": "yarn workspaces foreach -vvpA --topological-dev run build",
+    "postinstall": "husky",
+    "dev:back": "yarn apps/api dev"
+  }
+}
