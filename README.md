@@ -1,4 +1,4 @@
-E-commerce Platform API
+E-commerce Platform
 Esta es la API de una plataforma de comercio electrónico. Proporciona una interfaz robusta y escalable para gestionar productos, categorías, usuarios y archivos, siguiendo los principios de la arquitectura limpia y la inyección de dependencias.
 
 🚀 Características
