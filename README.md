@@ -1,91 +1,99 @@
-E-commerce Platform
+# E-commerce Platform API
+
 Esta es la API de una plataforma de comercio electrónico. Proporciona una interfaz robusta y escalable para gestionar productos, categorías, usuarios y archivos, siguiendo los principios de la arquitectura limpia y la inyección de dependencias.
 
-🚀 Características
-Gestión de productos y categorías: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para productos y categorías.
+## 🚀 Características
 
-Autenticación de usuarios: Registro y autenticación mediante JWT (JSON Web Tokens).
+* **Gestión de productos y categorías**: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para productos y categorías.
 
-Autorización basada en roles: Middleware para proteger rutas y restringir el acceso a administradores.
+* **Autenticación de usuarios**: Registro y autenticación mediante JWT (JSON Web Tokens).
 
-Subida de archivos: Middleware para manejar la subida de imágenes de productos y almacenar los metadatos en la base de datos.
+* **Autorización basada en roles**: Middleware para proteger rutas y restringir el acceso a administradores.
 
-Arquitectura modular: El proyecto está organizado en módulos que separan las responsabilidades (servicios, controladores, entidades y casos de uso).
+* **Subida de archivos**: Middleware para manejar la subida de imágenes de productos y almacenar los metadatos en la base de datos.
 
-🛠️ Tecnologías
-Node.js
+* **Arquitectura modular**: El proyecto está organizado en módulos que separan las responsabilidades (servicios, controladores, entidades y casos de uso).
 
-Express.js: Framework para el servidor web.
+## 🛠️ Tecnologías
 
-TypeScript: Lenguaje de programación.
+* **Node.js**
 
-TypeORM: ORM para interactuar con la base de datos.
+* **Express.js**: Framework para el servidor web.
 
-SQLite: Base de datos relacional sin servidor.
+* **TypeScript**: Lenguaje de programación.
 
-Multer: Middleware para manejar multipart/form-data (subida de archivos).
+* **TypeORM**: ORM para interactuar con la base de datos.
 
-jsonwebtoken: Para la autenticación con JWT.
+* **SQLite**: Base de datos relacional sin servidor.
 
-💻 Requisitos
+* **Multer**: Middleware para manejar `multipart/form-data` (subida de archivos).
+
+* **jsonwebtoken**: Para la autenticación con JWT.
+
+## 💻 Requisitos
+
 Asegúrate de tener instalado lo siguiente en tu entorno de desarrollo:
 
-Node.js (versión 18 o superior)
+* [**Node.js**](https://nodejs.org/) (versión 18 o superior)
 
-npm o Yarn
+* [**Yarn**](https://yarnpkg.com/)
 
-🚀 Instalación y uso
+## 🚀 Instalación y uso
+
 Sigue estos pasos para poner a funcionar la aplicación en tu entorno local.
 
-1. Clonar el repositorio
+### 1. Clonar el repositorio
+
 git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 cd nombre-del-repositorio
 
 
 
-2. Instalar dependencias
-npm install
-# o
+### 2. Instalar dependencias
+
 yarn install
 
-3. Inicializar la base de datos
+### 3. Inicializar la base de datos
+
 SQLite es una base de datos basada en archivos, por lo que no necesita un servidor. La base de datos se creará automáticamente en la raíz del proyecto.
 
-4. Iniciar la aplicación
-npm run dev
+### 4. Iniciar la aplicación
+yarn dev
 
+La aplicación se ejecutará en `http://localhost:3000`.
 
+## 🗺️ Endpoints de la API
 
-La aplicación se ejecutará en http://localhost:3000.
-
-🗺️ Endpoints de la API
 Aquí hay una lista de los endpoints principales de la API.
 
-Autenticación y Usuarios
-POST /api/users: Registra un nuevo usuario.
+### **Autenticación y Usuarios**
 
-POST /api/auth/login: Inicia sesión y devuelve un token JWT.
+* `POST /api/users`: Registra un nuevo usuario.
 
-Productos
-POST /api/products: (Admin) Crea un nuevo producto.
+* `POST /api/auth/login`: Inicia sesión y devuelve un token JWT.
 
-GET /api/products: Obtiene todos los productos.
+### **Productos**
 
-GET /api/products/:id: Obtiene un producto por su ID.
+* `POST /api/products/create`: **(Admin)** Crea un nuevo producto.
 
-PUT /api/products/:id: (Admin) Actualiza un producto existente.
+* `GET /api/products`: Obtiene todos los productos.
 
-DELETE /api/products/:id: (Admin) Elimina un producto.
+* `GET /api/products/:id`: Obtiene un producto por su ID.
 
-POST /api/products/:productId/upload: (Admin) Sube una imagen para un producto.
+* `PUT /api/products/update/:id`: **(Admin)** Actualiza un producto existente.
 
-Categorías
-POST /api/categories: (Admin) Crea una nueva categoría.
+* `DELETE /api/products/delete/:id`: **(Admin)** Elimina un producto.
 
-GET /api/categories: Obtiene todas las categorías.
+* `POST /api/upload/:id`: **(Admin)** Sube una imagen para un producto.
 
-GET /api/categories/:id: Obtiene una categoría por su ID.
+### **Categorías**
 
-PUT /api/categories/:id: (Admin) Actualiza una categoría.
+* `POST /api/categories/create`: **(Admin)** Crea una nueva categoría.
 
-DELETE /api/categories/:id: (Admin) Elimina una categoría.
+* `GET /api/categories`: Obtiene todas las categorías.
+
+* `GET /api/categories/:id`: Obtiene una categoría por su ID.
+
+* `PUT /api/categories/update/:id`: **(Admin)** Actualiza una categoría.
+
+* `DELETE /api/categories/delete/:id`: **(Admin)** Elimina una categoría.
