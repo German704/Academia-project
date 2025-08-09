@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BaseEntity } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BaseEntity, OneToOne } from "typeorm";
 import { User, UserRole, UUID } from "app-domain";
+import { CartEntity } from "./cart.js";
 
 @Entity()
 export class UserEntity extends BaseEntity implements User {
@@ -35,4 +36,7 @@ export class UserEntity extends BaseEntity implements User {
 
     @UpdateDateColumn({type: "date"}) 
     updatedAt!: Date;
+    
+    @OneToOne(() => CartEntity, (cart) => cart.user)
+    cart!: CartEntity;
 }

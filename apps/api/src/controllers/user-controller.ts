@@ -4,28 +4,23 @@ import { Router, Request, Response } from "express";
 import { UserServiceImplement } from "../services/user-service-implement.js"; // Se sigue inyectando el servicio
 // import { isUUID } from "class-validator";
 
-import {
-    register,
-} from "app-domain";
+import { register } from "app-domain";
 import { AuthServiceImplement } from "../services/auth-service-implement.js";
 
 export class UserController {
-    public router = Router();
+  public router = Router();
 
-    constructor(private userService: UserServiceImplement, private authService: AuthServiceImplement) {
-        this.initializeRoutes();
-    }
+  constructor(
+    private userService: UserServiceImplement,
+    private authService: AuthServiceImplement
+  ) {}
 
-    private initializeRoutes() {
-        this.router.post("/", this.registerUser.bind(this));
-        // this.router.get("/", this.getAllUsers.bind(this));
-        // this.router.get("/:id", this.getUserById.bind(this));
-        // this.router.put("/:id", this.updateUser.bind(this));
-    }
-    
-    async registerUser(req: Request, res: Response): Promise<void> {
-        const payload = req.body;
-        const newUser = await register({ userService: this.userService, authService: this.authService }, payload);
-        res.status(201).json(newUser);
-    }
+  async registerUser(req: Request, res: Response): Promise<void> {
+    const payload = req.body;
+    const newUser = await register(
+      { userService: this.userService, authService: this.authService },
+      payload
+    );
+    res.status(201).json(newUser);
+  }
 }

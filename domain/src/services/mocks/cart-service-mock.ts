@@ -1,6 +1,6 @@
 import { Cart, CartItem } from "../../entities/index.js";
 import { CartService } from "../cart-service.js";
-import { UUID } from "../../types/index.js";
+import { CartViewModel, UUID } from "../../types/index.js";
 
 
 export interface MockedCartService extends CartService {
@@ -70,6 +70,15 @@ export function cartServiceMock(initialCarts: Cart[] = [], initialItems: CartIte
     async getCartItems(userId: string): Promise<CartItem[]> {
       const cart = await this.getCart(userId);
       return this.items.filter((item) => item.cartId === cart.id);
+    },
+    async getCartWithItems(userId: string): Promise<CartViewModel> {
+      const cart = await this.getCart(userId);
+      const items = this.items.filter((item) => item.cartId === cart.id);
+
+      return {
+        ...cart,
+        items
+      }
     },
   };
 }

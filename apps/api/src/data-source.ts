@@ -4,13 +4,14 @@ import { UserEntity } from "./entities/user.js";
 import { ProductEntity } from "./entities/product.js";
 import { CategoryEntity } from "./entities/category.js";
 import { FileEntity } from "./entities/file.js";
+import { CartEntity, CartItemEntity } from "./entities/cart.js";
 
 export const AppDataSource = new DataSource({
     type: "sqlite", 
     database: "data/database.sqlite", 
     synchronize: true, 
     logging: false,
-    entities: [UserEntity, ProductEntity, CategoryEntity, FileEntity], 
+    entities: [UserEntity, ProductEntity, CategoryEntity, FileEntity, CartEntity, CartItemEntity], 
     migrations: [],
     subscribers: [],
 });

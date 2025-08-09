@@ -21,7 +21,7 @@ const authService = new AuthServiceImplement(userService);
 
     const categoryRouter = Router(); 
 
-    const protectedRoutes = Router(); //rutas protegidas
+    const protectedRoutes = Router();
     protectedRoutes.post("/create", categoryController.createCategory.bind(categoryController));
 
 

@@ -1,4 +1,5 @@
 import { Cart, CartItem } from "../entities/index.js";
+import { CartViewModel } from "../types/cart.js";
 
 export interface CartService {
   getCart(userId: string): Promise<Cart>;
@@ -6,4 +7,5 @@ export interface CartService {
   removeItem(userId: string, productId: string): Promise<void>;
   clearCart(userId: string): Promise<void>;
   getCartItems(userId: string): Promise<CartItem[]>
+  getCartWithItems(userId: string): Promise<CartViewModel>
 }

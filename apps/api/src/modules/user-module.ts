@@ -14,10 +14,10 @@ export const initializeUserModule = (dataSource: DataSource): Router => {
     const authMiddlewareInstance = authMiddleware(authService);
     const userController = new UserController(userService, authService);
 
-    const userRouter = Router(); //rutas publicas
+    const userRouter = Router();
     userRouter.post("/register", userController.registerUser.bind(userController));
 
-    const protectedRoutes = Router(); //rutas protegidas
+    const protectedRoutes = Router();
 
     userRouter.use("/", authMiddlewareInstance, protectedRoutes);
 

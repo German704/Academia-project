@@ -10,16 +10,7 @@ export class FileController {
   constructor(
     private fileService: FileServiceImplement,
     private productService: ProductServiceImplement
-  ) {
-    this.initializeRoutes();
-  }
-
-  private initializeRoutes() {
-    this.router.post(
-      "/upload",
-      this.uploadFileHandler.bind(this)
-    );
-  }
+  ) {}
 
   async uploadFileHandler(
     req: Request,
